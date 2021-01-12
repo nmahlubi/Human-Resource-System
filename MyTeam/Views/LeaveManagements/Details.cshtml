@@ -1,0 +1,98 @@
+﻿@model MyTeam.Models.LeaveManagement
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>LeaveManagement</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.annual_leave)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.annual_leave)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sick_leave)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sick_leave)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.maternity_leave)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.maternity_leave)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.start_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.start_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.end_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.end_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.total_day)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.total_day)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.comment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.comment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.accept)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.accept)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.decline)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.decline)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.datecreated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.datecreated)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.leaveManagementId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

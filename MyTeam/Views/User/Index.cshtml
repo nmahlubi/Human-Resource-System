@@ -1,0 +1,131 @@
+﻿
+@model MyTeam.Models.Employee
+@{
+    ViewBag.Title = "Index";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+</head>
+<body class="">
+    <div class="wrapper ">
+        <div class="sidebar" data-color="orange" data-background-color="white" data-image="~/Content/assets/img/sidebar-1.jpg">
+            <!--
+                Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+
+                Tip 2: you can also add an image using data-image tag
+            -->
+            <div class="logo">
+                <a href="http://www.creative-tim.com" class="simple-text logo-normal">
+                    INITIUM VENTURE
+                </a>
+            </div>
+            <div class="sidebar-wrapper">
+                <ul class="nav">
+                    <li class="nav-item active  ">
+                        <a class="nav-link" href="./dashboard.html">
+                            <i class="material-icons">dashboard</i>
+                            <p>Dashboard</p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item ">
+
+                        <a class="nav-link" href="~/User">
+                            <i class="material-icons">person</i>
+                            <p>User Profile</p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item ">
+                        <a class="nav-link" href="~/Employee">
+                            <i class="material-icons">content_paste</i>
+                            <p>Employees</p>
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="~/Department">
+                            <i class="material-icons">library_books</i>
+                            <p>Department</p>
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="~/Performances">
+                            <i class="material-icons">bubble_chart</i>
+                            <p>Performances</p>
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="~/Payrolls">
+                            <i class="material-icons">location_ons</i>
+                            <p>Payroll</p>
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="~/LeaveManagements">
+                            <i class="material-icons">notifications</i>
+                            <p>Leave Management</p>
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="./rtl.html">
+                            <i class="material-icons">language</i>
+                            <p>Birthday</p>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-panel">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+            <div class="container-fluid">
+                <div class="navbar-wrapper">
+                    <a class="navbar-brand" href="javascript:;">User Profile</a>
+                </div>
+            </div>
+        </nav>
+        <!-- End Navbar -->
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="card-header card-header-primary">
+                                <h4 class="card-title">Edit Profile</h4>
+                                <p class="card-category">Complete your profile</p>
+                            </div>
+                            <div class="card-body">
+                            
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card card-profile">
+                            <div class="card-avatar">
+                                <a href="javascript:;">
+                                    <img class="img" src="~/Content/assets/img/20200206_092703.jpg" />
+                                </a>
+                            </div>
+
+                            <div class="card-body">
+_                                <h6 class="card-category text-gray">CEO / Co-Founder</h6>
+                                <h4 class="card-title">Alec Thompson</h4>
+                                <p class="card-description">
+                                    Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
+                                </p>
+                                <a href="javascript:;" class="btn btn-primary btn-round">Follow</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

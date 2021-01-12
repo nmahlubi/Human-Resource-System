@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="75e1030a922f4c38afb40fa8fb6c25d1" Name="Diagram1">
+        <EntityTypeShape EntityType="InitiumEmployeeDBModel.C__MigrationHistory" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InitiumEmployeeDBModel.AspNetRole" Width="1.5" PointX="7.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="InitiumEmployeeDBModel.AspNetUserClaim" Width="1.5" PointX="12.25" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="InitiumEmployeeDBModel.AspNetUserLogin" Width="1.5" PointX="12.25" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InitiumEmployeeDBModel.AspNetUser" Width="1.5" PointX="10" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="InitiumEmployeeDBModel.Department" Width="1.5" PointX="3" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="InitiumEmployeeDBModel.Employee" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="InitiumEmployeeDBModel.LeaveManagement" Width="1.5" PointX="3" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="InitiumEmployeeDBModel.Payroll" Width="1.5" PointX="5.25" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InitiumEmployeeDBModel.Perfomance" Width="1.5" PointX="3" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="InitiumEmployeeDBModel.region" Width="1.5" PointX="9.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InitiumEmployeeDBModel.Role" Width="1.5" PointX="3" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="InitiumEmployeeDBModel.Salary" Width="1.5" PointX="7.5" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="InitiumEmployeeDBModel.sysdiagram" Width="1.5" PointX="11.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InitiumEmployeeDBModel.User" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <AssociationConnector Association="InitiumEmployeeDBModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="InitiumEmployeeDBModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="InitiumEmployeeDBModel.FK_Departments_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="InitiumEmployeeDBModel.FK_Users_Departments" ManuallyRouted="false" />
+        <AssociationConnector Association="InitiumEmployeeDBModel.FK_Users_LeaveManagements" ManuallyRouted="false" />
+        <AssociationConnector Association="InitiumEmployeeDBModel.FK_Salaries_Payrolls" ManuallyRouted="false" />
+        <AssociationConnector Association="InitiumEmployeeDBModel.FK_Users_Perfomances" ManuallyRouted="false" />
+        <AssociationConnector Association="InitiumEmployeeDBModel.FK_Users_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="InitiumEmployeeDBModel.FK_Salaries_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="InitiumEmployeeDBModel.AspNetUserRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

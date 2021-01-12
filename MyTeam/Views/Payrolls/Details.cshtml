@@ -1,0 +1,114 @@
+﻿@model MyTeam.Models.Payroll
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Payroll</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.salary)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.salary)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hours_worked)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hours_worked)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tax_no)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tax_no)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.uif)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.uif)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pension_fund)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pension_fund)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.overtime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.overtime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.public_holidays)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.public_holidays)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.bonus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bonus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.allowance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.allowance)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.benefits)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.benefits)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.datecreated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.datecreated)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Salary1.SalaryId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Salary1.SalaryId)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PayrollId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

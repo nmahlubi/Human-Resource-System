@@ -1,0 +1,126 @@
+﻿
+@using MyTeam.Models
+@model LoginViewModel
+@{
+ 
+    ViewBag.Title = "Log in";
+
+}
+
+
+
+
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Login/Register Modal by Creative Tim</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <style>
+        body {
+            padding-top: 60px;
+        }
+    </style>
+
+
+    <link href="~/Content/login assets/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/login assets/css/login-register.css" rel="stylesheet" />
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <script src="~/Content/login assets/js/jquery-1.10.2.js" type="text/javascript"></script>
+    <script src="~/Content/login assets/js/bootstrap.js" type="text/javascript"></script>
+    <script src="~/Content/login assets/js/login-register.js" type="text/javascript"></script>
+</head>
+<body>
+
+    <div class="modal fade login" id="loginModal">
+        <div class="modal-dialog login animated">
+            <div class="modal-content">
+                <div class="modal-body">
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <button data-dismiss="modal" class="close"><span></span></button>
+                        <div class="box">
+                            <div class="error"></div>
+                            <div class="form loginBox">
+
+                                <!--Content-->
+                                <div class="modal-content">
+
+                                    <!--Header-->
+                                    <div class="modal-header">
+                                        <img src="~/Content/female.png" alt="avatar" class="rounded-circle img-responsive">
+                                    </div>
+                                    <!--Body-->
+                                    <div class="modal-body text-center mb-1">
+                                        <div class="form-group">
+                                            <div class="col-md-10">
+                                                @Html.TextBoxFor(m => m.Email, new { @id = "email", @class = "form-control", @type = "text", @placeholder = "Email", @name = "email" })
+                                                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-10">
+                                                @Html.PasswordFor(m => m.Password, new { @id = "password", @class = "form-control", @type = "password", @placeholder = "Password", @name = "password" })
+                                                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+
+                                        <div class="text-center mt-4">
+                                            <button class="btn btn-cyan mt-1">Login <i class="fas fa-sign-in ml-1"></i></button>
+                                        </div>
+
+                                        @*<div class="form-group">
+                                            <div class="col-md-offset-2 col-md-10">
+                                                <input type="submit" value="Log in" class="btn btn-default btn-login" />
+                                            </div>
+                                        </di*@
+
+                                        <p>
+                                            @Html.ActionLink("Register as a new user", "Register")
+                                        </p>
+                                        <p>
+                                            @Html.ActionLink("Forgot your password?", "ForgotPassword")
+                                        </p>
+
+                                    </div>
+
+                                </div>
+                                <!--/.Content-->
+                            </div>
+                        </div>
+
+                    }
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+            <div class="forgot register-footer" style="display:none">
+                <span>Already have an account?</span>
+                <a href="javascript: showLoginForm();">Login</a>
+            </div>
+       
+
+
+
+    <script src="~/Content/3dParty/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //openLoginModal();
+            openLoginModal();
+        });
+    </script>
+
+</body>
+</html>
+
+
+
+

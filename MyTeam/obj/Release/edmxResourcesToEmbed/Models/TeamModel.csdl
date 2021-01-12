@@ -1,0 +1,367 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="InitiumEmployeeDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="C__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaim">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogin">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+    <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+    <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+  </EntityType>
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="DepartmentId" />
+    </Key>
+    <Property Name="DepartmentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="depart_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ID" Type="Int32" />
+    <Property Name="PersonID" Type="Int32" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK_Departments_Employee" FromRole="Departments" ToRole="Employee" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_Users_Departments" FromRole="Departments" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="EmailAddress" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="FirstName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Country" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="PostalCode" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Departments" Relationship="Self.FK_Departments_Employee" FromRole="Employee" ToRole="Departments" />
+  </EntityType>
+  <EntityType Name="LeaveManagement">
+    <Key>
+      <PropertyRef Name="leaveManagementId" />
+    </Key>
+    <Property Name="leaveManagementId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="annual_leave" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="sick_leave" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="maternity_leave" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="start_date" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="end_date" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="total_day" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="accept" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="decline" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="datecreated" Type="DateTime" Nullable="false" Precision="7" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_Users_LeaveManagements" FromRole="LeaveManagements" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Payroll">
+    <Key>
+      <PropertyRef Name="PayrollId" />
+    </Key>
+    <Property Name="PayrollId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="salary" Type="Double" Nullable="false" />
+    <Property Name="hours_worked" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="tax_no" Type="Int32" Nullable="false" />
+    <Property Name="uif" Type="Int32" Nullable="false" />
+    <Property Name="pension_fund" Type="Double" Nullable="false" />
+    <Property Name="overtime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="public_holidays" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="bonus" Type="Double" Nullable="false" />
+    <Property Name="allowance" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="benefits" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="datecreated" Type="DateTime" Nullable="false" Precision="7" />
+    <NavigationProperty Name="Salary1" Relationship="Self.FK_Salaries_Payrolls" FromRole="Payrolls" ToRole="Salaries" />
+  </EntityType>
+  <EntityType Name="Perfomance">
+    <Key>
+      <PropertyRef Name="PerformanceId" />
+    </Key>
+    <Property Name="PerformanceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="dateofreview" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="reviewedbyemployer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="commentbyreviewer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="commentbyemployee" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_Users_Perfomances" FromRole="Perfomances" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="region">
+    <Key>
+      <PropertyRef Name="region_id" />
+    </Key>
+    <Property Name="region_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="region_name" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="RolesId" />
+    </Key>
+    <Property Name="RolesId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_Users_Role" FromRole="Role" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Salary">
+    <Key>
+      <PropertyRef Name="SalaryId" />
+    </Key>
+    <Property Name="SalaryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="payroll_iId" Type="Int32" Nullable="false" />
+    <Property Name="salarycreateddate" Type="DateTime" Nullable="false" Precision="7" />
+    <NavigationProperty Name="Payroll" Relationship="Self.FK_Salaries_Payrolls" FromRole="Salaries" ToRole="Payrolls" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Salaries_Users" FromRole="Salaries" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Roles_Id" Type="Int32" Nullable="false" />
+    <Property Name="leaveManagemetId" Type="Int32" Nullable="false" />
+    <Property Name="PerformanceId" Type="Int32" Nullable="false" />
+    <Property Name="Department_Id" Type="Int32" Nullable="false" />
+    <Property Name="Salary_Id" Type="Int32" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="id_number" Type="Int32" Nullable="false" />
+    <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="phone" Type="Int32" Nullable="false" />
+    <Property Name="qualification" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="createddate" Type="DateTime" Nullable="false" Precision="7" />
+    <NavigationProperty Name="Department" Relationship="Self.FK_Users_Departments" FromRole="Users" ToRole="Departments" />
+    <NavigationProperty Name="LeaveManagement" Relationship="Self.FK_Users_LeaveManagements" FromRole="Users" ToRole="LeaveManagements" />
+    <NavigationProperty Name="Perfomance" Relationship="Self.FK_Users_Perfomances" FromRole="Users" ToRole="Perfomances" />
+    <NavigationProperty Name="Role" Relationship="Self.FK_Users_Role" FromRole="Users" ToRole="Role" />
+    <NavigationProperty Name="Salaries" Relationship="Self.FK_Salaries_Users" FromRole="Users" ToRole="Salaries" />
+  </EntityType>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Departments_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="Departments" Type="Self.Department" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Departments">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Departments">
+    <End Role="Departments" Type="Self.Department" Multiplicity="1" />
+    <End Role="Users" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departments">
+        <PropertyRef Name="DepartmentId" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="Department_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_LeaveManagements">
+    <End Role="LeaveManagements" Type="Self.LeaveManagement" Multiplicity="1" />
+    <End Role="Users" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LeaveManagements">
+        <PropertyRef Name="leaveManagementId" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="leaveManagemetId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Salaries_Payrolls">
+    <End Role="Payrolls" Type="Self.Payroll" Multiplicity="1" />
+    <End Role="Salaries" Type="Self.Salary" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Payrolls">
+        <PropertyRef Name="PayrollId" />
+      </Principal>
+      <Dependent Role="Salaries">
+        <PropertyRef Name="SalaryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Perfomances">
+    <End Role="Perfomances" Type="Self.Perfomance" Multiplicity="1" />
+    <End Role="Users" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Perfomances">
+        <PropertyRef Name="PerformanceId" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="PerformanceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Role">
+    <End Role="Role" Type="Self.Role" Multiplicity="1" />
+    <End Role="Users" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="RolesId" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="Roles_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Salaries_Users">
+    <End Role="Users" Type="Self.User" Multiplicity="1" />
+    <End Role="Salaries" Type="Self.Salary" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Salaries">
+        <PropertyRef Name="payroll_iId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AspNetUserRoles">
+    <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="InitiumEmployeeDBEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+    <EntitySet Name="Departments" EntityType="Self.Department" />
+    <EntitySet Name="Employees" EntityType="Self.Employee" />
+    <EntitySet Name="LeaveManagements" EntityType="Self.LeaveManagement" />
+    <EntitySet Name="Payrolls" EntityType="Self.Payroll" />
+    <EntitySet Name="Perfomances" EntityType="Self.Perfomance" />
+    <EntitySet Name="regions" EntityType="Self.region" />
+    <EntitySet Name="Roles" EntityType="Self.Role" />
+    <EntitySet Name="Salaries" EntityType="Self.Salary" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Departments_Employee" Association="Self.FK_Departments_Employee">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="Departments" EntitySet="Departments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Departments" Association="Self.FK_Users_Departments">
+      <End Role="Departments" EntitySet="Departments" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_LeaveManagements" Association="Self.FK_Users_LeaveManagements">
+      <End Role="LeaveManagements" EntitySet="LeaveManagements" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Salaries_Payrolls" Association="Self.FK_Salaries_Payrolls">
+      <End Role="Payrolls" EntitySet="Payrolls" />
+      <End Role="Salaries" EntitySet="Salaries" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Perfomances" Association="Self.FK_Users_Perfomances">
+      <End Role="Perfomances" EntitySet="Perfomances" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Role" Association="Self.FK_Users_Role">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Salaries_Users" Association="Self.FK_Salaries_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Salaries" EntitySet="Salaries" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
